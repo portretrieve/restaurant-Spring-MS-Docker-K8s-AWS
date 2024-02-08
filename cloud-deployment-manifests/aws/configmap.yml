@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: configmap
+data:
+  restaurantdb_url: jdbc:mysql://mysql-db-instance.chqlhhmbfegs.us-east-1.rds.amazonaws.com:3306/restaurantDB
+  foodcataloguedb_url: jdbc:mysql://mysql-db-instance.chqlhhmbfegs.us-east-1.rds.amazonaws.com:3306/foodDB
+  userdb_url: jdbc:mysql://mysql-db-instance.chqlhhmbfegs.us-east-1.rds.amazonaws.com:3306/codeDecodeUserDB
+  orderdb_url: mongodb+srv://admin:Canada001@order-service-cluster.tvhfvhp.mongodb.net/?retryWrites=true&w=majority
+  eureka_service_address: http://eureka-0.eureka-service:8761/eureka
