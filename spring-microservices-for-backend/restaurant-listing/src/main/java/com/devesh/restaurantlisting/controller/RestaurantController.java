@@ -1,7 +1,7 @@
 package com.devesh.restaurantlisting.controller;
 
 import com.devesh.restaurantlisting.dto.RestaurantDTO;
-import com.devesh.restaurantlisting.service.RestaurantService;
+import com.devesh.restaurantlisting.service.RestaurantServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +15,7 @@ import java.util.List;
 public class RestaurantController {
 
     @Autowired
-    private RestaurantService restaurantService;
+    private RestaurantServiceImpl restaurantServiceImpl;
 
     @GetMapping
     public String test(){
@@ -24,17 +24,17 @@ public class RestaurantController {
 
     @GetMapping("/fetchAllRestaurants")
     public ResponseEntity<List<RestaurantDTO>> getAllRestaurants(){
-      return new ResponseEntity<>(restaurantService.getAllRestaurants(), HttpStatus.OK);
+      return new ResponseEntity<>(restaurantServiceImpl.getAllRestaurants(), HttpStatus.OK);
     }
 
     @GetMapping("fetchById/{id}")
     public ResponseEntity<RestaurantDTO> getRestaurant(@PathVariable int id){
-        return restaurantService.getRestaurantById(id);
+        return restaurantServiceImpl.getRestaurantById(id);
     }
 
     @PostMapping("/addRestaurant")
     public ResponseEntity<RestaurantDTO> createRestaurant(@RequestBody RestaurantDTO restaurantDTO){
-        return new ResponseEntity<>(restaurantService.createRestaurant(restaurantDTO), HttpStatus.CREATED);
+        return new ResponseEntity<>(restaurantServiceImpl.createRestaurant(restaurantDTO), HttpStatus.CREATED);
     }
 
 }
